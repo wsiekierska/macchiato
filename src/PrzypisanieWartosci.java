@@ -1,11 +1,11 @@
-public class Przypisanie_wartosci extends Instrukcja {
+public class PrzypisanieWartosci extends Instrukcja {
     public void nazwa_instrukcji(){
         System.out.println("new Przypisanie wartosci zmiennej: "+this.z);
     }
     private char z;
     private Wyrazenie wartosc;
 
-    public Przypisanie_wartosci(char z, Wyrazenie wartosc) {
+    public PrzypisanieWartosci(char z, Wyrazenie wartosc) {
         this.z = z;
         this.wartosc = wartosc;
         this.jestBlokiem = false;

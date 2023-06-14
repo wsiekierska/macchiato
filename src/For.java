@@ -8,25 +8,24 @@ public class For extends Blok {
     public void nazwa_instrukcji(){
         System.out.println("For, iterator: "+this.k);
     }
-    public For(char k, Wyrazenie wyrazenie, ArrayList<Instrukcja> instrukcje) {
-        super(instrukcje);
+    public For(char k, Wyrazenie wyrazenie, ArrayList<Instrukcja> instrukcje, Zmienne zmienne) {
+        super(instrukcje, zmienne);
         this.k = k;
         iterator = 0;
-        this.zmienne = new ArrayList<>();
         this.wyrazenie = wyrazenie;
     }
 
     public void Wykonaj(Blok x) throws IstniejacaZmienna{
         try {
-            this.poprzedni=x;
-            zmienne.addAll(x.zmienne);
+            //this.poprzedni=x;
+            zmienne.rzutuj(x.zmienne());
             new Deklaracja(k, new Literal(0));
             l = wyrazenie.Wylicz(x);
             for (int i = 0; i < l; i++) {
-                new Przypisanie_wartosci(k, new Literal(i)).Wykonaj(this);
+                new PrzypisanieWartosci(k, new Literal(i)).Wykonaj(this);
                 for (Instrukcja instrukcja : instrukcje) {
                     instrukcja.Wykonaj(this);
-                    Aktualizacja(x);
+                    //Aktualizacja(x);
                 }
             }
         }catch(DzieleniePrzezZero e){
@@ -40,7 +39,6 @@ public class For extends Blok {
 
     public int WykonajJedno(Blok x) throws IstniejacaZmienna{
         try {
-            this.poprzedni=x;
             l = wyrazenie.Wylicz(x);
             if (instrukcje.get(licznik).getStanWykonania() == 1) {
                 licznik++;
