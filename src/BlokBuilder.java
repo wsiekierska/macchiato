@@ -8,8 +8,8 @@ public class BlokBuilder {
         this.instrukcje=new ArrayList<>();
         this.zmienne=new Zmienne();
     }
-    public void Deklaracja(Deklaracja d){
-        instrukcje.add(d);
+    public void Deklaracja(char a, Wyrazenie b){
+        instrukcje.add(new Deklaracja(a, b));
     }
     public void Blok(Blok d){
         instrukcje.add(d);
@@ -23,11 +23,11 @@ public class BlokBuilder {
     public void ElseIf(ElseIf d){
         instrukcje.add(d);
     }
-    public void Print(Print d){
-        instrukcje.add(d);
+    public void Print(Wyrazenie a){
+        instrukcje.add(new Print(a));
     }
-    public void PrzypisanieWartosci(PrzypisanieWartosci d){
-        instrukcje.add(d);
+    public void PrzypisanieWartosci(char a, Wyrazenie b){
+        instrukcje.add(new PrzypisanieWartosci(a, b));
     }
     public Blok build(){
         return new Blok(instrukcje, zmienne);
