@@ -15,15 +15,14 @@ public class Program extends Blok {
         super(instrukcje, zmienne, procedury);
         this.Bloczki = Bloczki;
         Bloczki.add(0, new Blok(instrukcje, zmienne, procedury));
-        Wykonaj();
     }
-
     public void Wykonaj() {
             for (Instrukcja instrukcja : instrukcje) {
                 instrukcja.Wykonaj(this);
             } zmienne.wypisz();
     }
-    public void Uruchom_z_odpluskiwaczem() {
+
+    public void Debug() {
         Odpluskiwacz debug=new Odpluskiwacz();
         ktoryBlok = 0;
         Scanner sc = new Scanner(System.in);

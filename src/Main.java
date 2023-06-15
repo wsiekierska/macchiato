@@ -1,5 +1,4 @@
 import java.util.*;
-
 import static java.util.List.*;
 
 public class Main {
@@ -19,6 +18,7 @@ public class Main {
                         .wywolanieProcedury("out", new ArrayList<Wyrazenie>(of(Literal.of(100))))
                         .build()
                 )
-        .build();
+                .build();
+        program.Debug();
     }
 }

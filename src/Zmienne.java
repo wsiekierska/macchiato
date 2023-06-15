@@ -17,7 +17,7 @@ public class Zmienne {
         return false;
     }
     public int zwrocWartosc(char z) throws BrakZmiennej{
-        for (Zmienna i: this.zmienne) {
+        for (Zmienna i: zmienne) {
             if(i.nazwa()==z) return i.wartosc();
         }
         throw new BrakZmiennej("Brak zmiennej: "+z);
