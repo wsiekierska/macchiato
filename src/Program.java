@@ -20,7 +20,6 @@ public class Program extends Blok {
     }
 
     public void Wykonaj(Blok x) {
-        try {
             for (Instrukcja instrukcja : instrukcje) {
                 instrukcja.Wykonaj(this);
             }
@@ -29,10 +28,6 @@ public class Program extends Blok {
                 System.out.print("=");
                 System.out.print(zmienna.drugi());
             }
-        }catch (IstniejacaZmienna e) {
-            System.out.println("Taka zmienna juz istnieje");
-            e.printStackTrace();
-        }
     }
     public void Uruchom_z_odpluskiwaczem(Blok x) {
         Odpluskiwacz debug=new Odpluskiwacz();
