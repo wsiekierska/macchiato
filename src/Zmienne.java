@@ -45,9 +45,9 @@ public class Zmienne {
     }
     public void wypisz(){
         for (Zmienna zmienna: zmienne) {
-            System.out.println(zmienna.nazwa());
+            System.out.print(zmienna.nazwa());
             System.out.print("=");
-            System.out.print(zmienna.wartosc());
+            System.out.println(zmienna.wartosc());
         }
     }
 }

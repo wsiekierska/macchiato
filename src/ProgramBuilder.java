@@ -5,9 +5,11 @@ public class ProgramBuilder extends BlokBuilder{
         super();
         this.bloczki=new ArrayList<>();
     }
-    public void Blok(Blok d){
+
+    public ProgramBuilder blok(Blok d){
         instrukcje.add(d);
         bloczki.add(d);
+        return this;
     }
     public Program build(){
         return new Program(instrukcje, bloczki, zmienne, procedury);

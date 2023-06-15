@@ -10,32 +10,41 @@ public class BlokBuilder {
         this.zmienne=new Zmienne();
         this.procedury=new Procedury();
     }
-    public void Deklaracja(char a, Wyrazenie b){
+    public BlokBuilder deklaracja(char a, Wyrazenie b){
         instrukcje.add(new Deklaracja(a, b));
+        return this;
     }
-    public void Blok(Blok d){
+    public BlokBuilder blok(Blok d){
         instrukcje.add(d);
+        return this;
     }
-    public void DeklaracjaProcedury(String nazwa, ArrayList<Character> argumenty, Blok b){
+    public BlokBuilder deklaracjaProcedury(String nazwa, ArrayList<Character> argumenty, Blok b){
         instrukcje.add(new DeklaracjaProcedury(nazwa, argumenty, b));
+        return this;
     }
-    public void WywolanieProcedury(String nazwa, ArrayList<Integer> parametry){
+    public BlokBuilder wywolanieProcedury(String nazwa, ArrayList<Wyrazenie> parametry){
         instrukcje.add(new WywołanieProcedury(nazwa, parametry));
+        return this;
     }
-    public void For(For d){
+    public BlokBuilder newFor(For d){
         instrukcje.add(d);
+        return this;
     }
-    public void If(If d){
+    public BlokBuilder newif(If d){
         instrukcje.add(d);
+        return this;
     }
-    public void ElseIf(ElseIf d){
+    public BlokBuilder newElseIf(ElseIf d){
         instrukcje.add(d);
+        return this;
     }
-    public void Print(Wyrazenie a){
+    public BlokBuilder newPrint(Wyrazenie a){
         instrukcje.add(new Print(a));
+        return this;
     }
-    public void PrzypisanieWartosci(char a, Wyrazenie b){
+    public BlokBuilder przypisanieWartosci(char a, Wyrazenie b){
         instrukcje.add(new PrzypisanieWartosci(a, b));
+        return this;
     }
     public Blok build(){
         return new Blok(instrukcje, zmienne, procedury);

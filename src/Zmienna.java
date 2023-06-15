@@ -17,7 +17,7 @@ public class Zmienna extends Wyrazenie {
     public int wartosc(){return this.wartosc;}
     public void zmienWartosc(int w){this.wartosc=w;}
 
-    public static Zmienna zmiennaONazwie(char nazwa){
+    public static Zmienna oNazwie(char nazwa){
         return new Zmienna(nazwa);
     }
     public int Wylicz(Blok b) throws BrakZmiennej {

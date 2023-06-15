@@ -5,6 +5,9 @@ public class Odejmowanie extends Wyrazenie {
         this.a = a;
         this.b = b;
     }
+    public static Odejmowanie of(Wyrazenie a, Wyrazenie b){
+        return new Odejmowanie(a, b);
+    }
 
     public int Wylicz(Blok x) throws DzieleniePrzezZero, BrakZmiennej{
         return a.Wylicz(x) - b.Wylicz(x);

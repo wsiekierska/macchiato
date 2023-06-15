@@ -6,8 +6,8 @@ public class WywołanieProcedury extends Instrukcja{
     }
     private Zmienne zmienne;
     private String nazwa;
-    private ArrayList<Integer> parametry;
-    public WywołanieProcedury(String nazwa, ArrayList<Integer> parametry){
+    private ArrayList<Wyrazenie> parametry;
+    public WywołanieProcedury(String nazwa, ArrayList<Wyrazenie> parametry){
         this.nazwa=nazwa;
         this.parametry=parametry;
         this.stanWykonania = 0;
@@ -17,16 +17,21 @@ public class WywołanieProcedury extends Instrukcja{
         try {
             DeklaracjaProcedury pom = x.procedury().znajdz(this.nazwa);
             ArrayList<Character> argumenty = pom.argumenty();
-            for (int i : parametry) {
-                x.zmienne().dodaj(argumenty.get(parametry.get(i)), i);
+            for (Wyrazenie i : parametry) {
+                x.zmienne().dodaj(argumenty.get(parametry.indexOf(i)), i.Wylicz(x));//e?
             }
             pom.blok().Wykonaj(x);
         } catch(BrakProcedury e){
             System.out.println("Brak zadeklarowanej procedury");
             e.printStackTrace();
+        }catch(DzieleniePrzezZero e){
+            System.out.println("Dzielenie przez zero");
+            e.printStackTrace();
+        }catch(BrakZmiennej e){
+            System.out.println("Brak zmiennej");
+            e.printStackTrace();
         }
     }
-
     public int WykonajJedno(Blok x){
         Wykonaj(x);
         stanWykonania=1;

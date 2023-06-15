@@ -6,9 +6,10 @@ public class ElseIfBuilder extends IfBuilder{
         super(a, operator, b);
         instrukcjePozytywne=new ArrayList<>();
     }
-    public void Else(){
+    public ElseIfBuilder Else(){
         instrukcjePozytywne.addAll(instrukcje);
         instrukcje.clear();
+        return this;
     }
     public ElseIf build(){
         return new ElseIf(a, operator, b, instrukcjePozytywne, instrukcje, zmienne, procedury);
