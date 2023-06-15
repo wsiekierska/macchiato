@@ -14,7 +14,7 @@ public class ElseIf extends If {
     }
 
 
-    public void Wykonaj(Blok x) throws IstniejacaZmienna {
+    public void Wykonaj(Blok x){
         If spełnioneWarunki = new If(a, operator, b, instrukcje, zmienne);
         spełnioneWarunki.Wykonaj(x);
         if (spełnioneWarunki.getStanWykonania() == 0) {

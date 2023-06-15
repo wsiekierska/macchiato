@@ -15,7 +15,7 @@ public class For extends Blok {
         this.wyrazenie = wyrazenie;
     }
 
-    public void Wykonaj(Blok x) throws IstniejacaZmienna{
+    public void Wykonaj(Blok x){
         try {
             //this.poprzedni=x;
             zmienne.rzutuj(x.zmienne());
@@ -37,7 +37,7 @@ public class For extends Blok {
         }
     }
 
-    public int WykonajJedno(Blok x) throws IstniejacaZmienna{
+    public int WykonajJedno(Blok x){
         try {
             l = wyrazenie.Wylicz(x);
             if (instrukcje.get(licznik).getStanWykonania() == 1) {

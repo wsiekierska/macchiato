@@ -39,17 +39,17 @@ public class Main {
         //którego niestety nie potrafię zlokalizować.
 
 
-        ArrayList<Instrukcja> program2 = new ArrayList<Instrukcja>();
-        ArrayList<Blok> bloczki2 =new ArrayList<Blok>();
-        ArrayList<Instrukcja> instr1 = new ArrayList<Instrukcja>();
-        instr1.add(new Deklaracja('g', new Literal(99)));
-        instr1.add(new Print(new Zmienna('g')));
-        instr1.add(new Print(new Zmienna('c')));
-        program2.add(new Deklaracja('c', new Literal(2137)));
-        program2.add(new Blok(instr1));
-        bloczki2.add(0, new Blok(instr1));
+//        ArrayList<Instrukcja> program2 = new ArrayList<Instrukcja>();
+//        ArrayList<Blok> bloczki2 =new ArrayList<Blok>();
+//        ArrayList<Instrukcja> instr1 = new ArrayList<Instrukcja>();
+//        instr1.add(new Deklaracja('g', new Literal(99)));
+//        instr1.add(new Print(new Zmienna('g')));
+//        instr1.add(new Print(new Zmienna('c')));
+//        program2.add(new Deklaracja('c', new Literal(2137)));
+//        program2.add(new Blok(instr1));
+//        bloczki2.add(0, new Blok(instr1));
 
-        Program Program2 = new Program(program2, bloczki2);
-        Program2.Wykonaj(Program2);
+        //Program Program2 = new Program(program2, bloczki2);
+        //Program2.Wykonaj(Program2);
     }
 }

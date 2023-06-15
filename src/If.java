@@ -15,7 +15,7 @@ public class If extends Blok {
         this.operator = operator;
     }
 
-    public void Wykonaj(Blok x) throws IstniejacaZmienna{
+    public void Wykonaj(Blok x){
         try {
             zmienne.rzutuj(x.zmienne());
             w1 = a.Wylicz(x);

@@ -5,6 +5,7 @@ public class Print extends Instrukcja {
     private Wyrazenie w;
 
     public Print(Wyrazenie w) {
+        this.stanWykonania=0;
         this.w = w;
         this.jestBlokiem = false;
     }

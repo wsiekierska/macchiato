@@ -63,7 +63,7 @@ public class Blok extends Instrukcja {
 //
 //    }
 
-    public void Wykonaj (Blok x) throws IstniejacaZmienna{
+    public void Wykonaj (Blok x){
         this.zmienne.rzutuj(x.zmienne());
         for (Instrukcja instrukcja : instrukcje) {
             instrukcja.Wykonaj(this);
@@ -84,7 +84,7 @@ public class Blok extends Instrukcja {
         return x;
     }
 
-    public int WykonajJedno(Blok x) throws IstniejacaZmienna{
+    public int WykonajJedno(Blok x){
         if (instrukcje.get(licznik).getStanWykonania() == 1) {
             licznik++;
         }
