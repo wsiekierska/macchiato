@@ -11,23 +11,17 @@ public class Program extends Blok {
     }
     private int ktoryBlok;
 
-    public Program(ArrayList<Instrukcja> instrukcje, ArrayList<Blok> Bloczki) {
-        this.instrukcje = instrukcje;
-        this.zmienne = new ArrayList<>();
+    public Program(ArrayList<Instrukcja> instrukcje, ArrayList<Blok> Bloczki, Zmienne zmienne) {
+        super(instrukcje, zmienne);
         this.Bloczki = Bloczki;
-        this.poprzedni=this;
-        Bloczki.add(new Blok(instrukcje));
+        //this.poprzedni=this;
+        Bloczki.add(0, new Blok(instrukcje, zmienne));
     }
 
     public void Wykonaj(Blok x) {
             for (Instrukcja instrukcja : instrukcje) {
                 instrukcja.Wykonaj(this);
-            }
-            for (Para<Character, Integer> zmienna : zmienne) {
-                System.out.print(zmienna.pierwszy());
-                System.out.print("=");
-                System.out.print(zmienna.drugi());
-            }
+            } zmienne.wypisz();
     }
     public void Uruchom_z_odpluskiwaczem(Blok x) {
         Odpluskiwacz debug=new Odpluskiwacz();
@@ -39,7 +33,6 @@ public class Program extends Blok {
             switch (c) {
                 case "s" -> {
                     debug.Step(this);
-
                 }
                 case "c" -> {
                     debug.Continue(this);
@@ -51,12 +44,9 @@ public class Program extends Blok {
                     System.out.println("Program został zakończony.");
                     return;
                 }
-
             }
         }
-
     }
-
 }
 
 

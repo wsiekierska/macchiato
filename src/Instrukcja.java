@@ -12,9 +12,9 @@ public abstract class Instrukcja {
     public abstract void nazwa_instrukcji();
 
 
-    public abstract void Wykonaj(Blok x) throws IstniejacaZmienna;
+    public abstract void Wykonaj(Blok x);
 
-    public abstract int WykonajJedno(Blok x) throws IstniejacaZmienna;
+    public abstract int WykonajJedno(Blok x);
 
 
 }
