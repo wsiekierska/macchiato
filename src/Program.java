@@ -11,11 +11,10 @@ public class Program extends Blok {
     }
     private int ktoryBlok;
 
-    public Program(ArrayList<Instrukcja> instrukcje, ArrayList<Blok> Bloczki, Zmienne zmienne) {
-        super(instrukcje, zmienne);
+    public Program(ArrayList<Instrukcja> instrukcje, ArrayList<Blok> Bloczki, Zmienne zmienne, Procedury procedury) {
+        super(instrukcje, zmienne, procedury);
         this.Bloczki = Bloczki;
-        //this.poprzedni=this;
-        Bloczki.add(0, new Blok(instrukcje, zmienne));
+        Bloczki.add(0, new Blok(instrukcje, zmienne, procedury));
     }
 
     public void Wykonaj(Blok x) {

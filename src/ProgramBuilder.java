@@ -10,6 +10,6 @@ public class ProgramBuilder extends BlokBuilder{
         bloczki.add(d);
     }
     public Program build(){
-        return new Program(instrukcje, bloczki, zmienne);
+        return new Program(instrukcje, bloczki, zmienne, procedury);
     }
 }

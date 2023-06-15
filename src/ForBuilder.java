@@ -9,6 +9,6 @@ public class ForBuilder extends BlokBuilder{
         this.k=k;
     }
     public For build(){
-        return new For(k,w, instrukcje, zmienne);
+        return new For(k,w, instrukcje, zmienne, procedury);
     }
 }

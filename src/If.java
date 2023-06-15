@@ -8,8 +8,8 @@ public class If extends Blok {
     protected String operator;
     static protected int w1;
     static protected int w2;
-    public If(Wyrazenie a, String operator, Wyrazenie b, ArrayList<Instrukcja> instrukcje, Zmienne zmienne) {
-        super(instrukcje, zmienne);
+    public If(Wyrazenie a, String operator, Wyrazenie b, ArrayList<Instrukcja> instrukcje, Zmienne zmienne, Procedury procedury) {
+        super(instrukcje, zmienne, procedury);
         this.a = a;
         this.b = b;
         this.operator = operator;
@@ -18,6 +18,7 @@ public class If extends Blok {
     public void Wykonaj(Blok x){
         try {
             zmienne.rzutuj(x.zmienne());
+            procedury.rzutuj(x.procedury());
             w1 = a.Wylicz(x);
             w2 = b.Wylicz(x);
             switch (operator) {
@@ -25,7 +26,6 @@ public class If extends Blok {
                     if (w1 == w2) {
                         for (Instrukcja instrukcja : instrukcje) {
                             instrukcja.Wykonaj(x);
-                            //Aktualizacja(x);
                         }
                         stanWykonania = 1;
                     }
@@ -34,7 +34,6 @@ public class If extends Blok {
                     if (w1 != w2) {
                         for (Instrukcja instrukcja : instrukcje) {
                             instrukcja.Wykonaj(x);
-                            //Aktualizacja(x);
                         }
                         stanWykonania = 1;
                     }
@@ -43,7 +42,6 @@ public class If extends Blok {
                     if (w1 > w2) {
                         for (Instrukcja instrukcja : instrukcje) {
                             instrukcja.Wykonaj(x);
-                            //Aktualizacja(x);
                         }
                         stanWykonania = 1;
                     }
@@ -52,7 +50,6 @@ public class If extends Blok {
                     if (w1 < w2) {
                         for (Instrukcja instrukcja : instrukcje) {
                             instrukcja.Wykonaj(x);
-                            //Aktualizacja(x);
                         }
                         stanWykonania = 1;
                     }
@@ -61,7 +58,6 @@ public class If extends Blok {
                     if (w1 >= w2) {
                         for (Instrukcja instrukcja : instrukcje) {
                             instrukcja.Wykonaj(x);
-//                            Aktualizacja(x);
                         }
                         stanWykonania = 1;
                     }
@@ -70,7 +66,6 @@ public class If extends Blok {
                     if (w1 <= w2) {
                         for (Instrukcja instrukcja : instrukcje) {
                             instrukcja.Wykonaj(x);
-//                            Aktualizacja(x);
                         }
                         stanWykonania = 1;
                     }

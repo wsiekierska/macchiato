@@ -8,20 +8,19 @@ public class ElseIf extends If {
     private ArrayList<Instrukcja> przeciwne;
 
     public ElseIf(Wyrazenie a, String operator, Wyrazenie b, ArrayList<Instrukcja> instrukcje,
-                  ArrayList<Instrukcja> przeciwne, Zmienne zmienne) {
-        super(a, operator, b, instrukcje, zmienne);
+                  ArrayList<Instrukcja> przeciwne, Zmienne zmienne, Procedury procedury) {
+        super(a, operator, b, instrukcje, zmienne, procedury);
         this.przeciwne = przeciwne;
     }
 
 
     public void Wykonaj(Blok x){
-        If spełnioneWarunki = new If(a, operator, b, instrukcje, zmienne);
+        If spełnioneWarunki = new If(a, operator, b, instrukcje, zmienne, procedury);
         spełnioneWarunki.Wykonaj(x);
         if (spełnioneWarunki.getStanWykonania() == 0) {
             zmienne.rzutuj(x.zmienne());
             for (Instrukcja instrukcja : przeciwne) {
                 instrukcja.Wykonaj(x);
-//                Aktualizacja(x);
             }
         }
     }

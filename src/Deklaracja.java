@@ -15,7 +15,7 @@ public class Deklaracja extends Instrukcja {
     public void Wykonaj(Blok x) {
         try {
             int wartosc = a.Wylicz(x);
-            x.zmienne().zmienWartosc(nazwa, wartosc);
+            x.zmienne().dodaj(nazwa, wartosc);
         }catch(DzieleniePrzezZero e){
             System.out.println("Dzielenie przez zero");
             e.printStackTrace();

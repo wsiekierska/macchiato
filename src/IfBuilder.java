@@ -8,6 +8,6 @@ public class IfBuilder extends BlokBuilder{
         this.b=b;
     }
     public If build(){
-        return new If(a,operator,b,instrukcje, zmienne);
+        return new If(a,operator,b,instrukcje, zmienne, procedury);
     }
 }

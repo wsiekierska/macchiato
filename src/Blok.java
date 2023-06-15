@@ -11,13 +11,12 @@ public class Blok extends Instrukcja {
     public Zmienne zmienne() {
         return zmienne;
     }
+    protected Procedury procedury;
+    public Procedury procedury() {
+        return this.procedury;
+    }
 
     protected ArrayList<Instrukcja> instrukcje;
-    //protected Blok poprzedni;
-
-//    public Blok getPoprzedni() {
-//        return poprzedni;
-//    }
     protected int licznik;
     protected int stanWykonania;
     public ArrayList<Instrukcja> getInstrukcje() {
@@ -32,44 +31,22 @@ public class Blok extends Instrukcja {
         return licznik;
     }
 
-//    public Blok() {
-//    }
-
-    public Blok(ArrayList<Instrukcja> instrukcje, Zmienne zmienne) {
+    public Blok(ArrayList<Instrukcja> instrukcje, Zmienne zmienne, Procedury procedury) {
+        this.procedury=procedury;
         this.licznik = 0;
         this.stanWykonania = 0;
         this.instrukcje = instrukcje;
         this.zmienne = zmienne;
         this.jestBlokiem = true;
     }
-//    private Blok(BlokBuilder builder) {
-//        this.zmienne=builder.zmienne;
-//        this.instrukcje=builder.instrukcje;
-//    }
-
-//    protected void Aktualizacja(Blok x) {
-//        try{
-//        for (int i = 0; i < x.zmienne.size(); i++) {
-//            if (Objects.equals((zmienne.get(i)).pierwszy(), (x.zmienne.get(i)).pierwszy())) {
-//                if (!Objects.equals((zmienne.get(i)).drugi(), (x.zmienne.get(i)).drugi())) {
-//                    new PrzypisanieWartosci((zmienne.get(i)).pierwszy(), new Literal((zmienne.get(i)).drugi())).Wykonaj(x);
-//                }
-//            }
-//        }
-//        }catch (IstniejacaZmienna e) {
-//            System.out.println("Taka zmienna juz istnieje");
-//            e.printStackTrace();
-//        }
-//
-//    }
 
     public void Wykonaj (Blok x){
+        this.procedury.rzutuj(x.procedury());
         this.zmienne.rzutuj(x.zmienne());
         for (Instrukcja instrukcja : instrukcje) {
             instrukcja.Wykonaj(this);
         }
     }
-
     public Blok Znajdz_pozycje(Blok x) {
         for (Instrukcja instrukcja : instrukcje) {
             if (instrukcja.getStanWykonania() == 1) {
@@ -85,6 +62,10 @@ public class Blok extends Instrukcja {
     }
 
     public int WykonajJedno(Blok x){
+        if(licznik==0){
+            this.procedury.rzutuj(x.procedury());
+            this.zmienne.rzutuj(x.zmienne());
+        }
         if (instrukcje.get(licznik).getStanWykonania() == 1) {
             licznik++;
         }

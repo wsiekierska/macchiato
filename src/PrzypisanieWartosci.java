@@ -12,7 +12,7 @@ public class PrzypisanieWartosci extends Deklaracja {
     public void Wykonaj(Blok x){
         try {
             int wartosc = a.Wylicz(x);
-            x.zmienne().dodaj(nazwa, wartosc);
+            x.zmienne().zmienWartosc(nazwa, wartosc);
         }catch(DzieleniePrzezZero e){
             System.out.println("Dzielenie przez zero");
             e.printStackTrace();

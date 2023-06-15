@@ -11,7 +11,7 @@ public class ElseIfBuilder extends IfBuilder{
         instrukcje.clear();
     }
     public ElseIf build(){
-        return new ElseIf(a, operator, b, instrukcjePozytywne, instrukcje, zmienne);
+        return new ElseIf(a, operator, b, instrukcjePozytywne, instrukcje, zmienne, procedury);
     }
 
 }
