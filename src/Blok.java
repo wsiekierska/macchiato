@@ -47,6 +47,16 @@ public class Blok extends Instrukcja {
             instrukcja.Wykonaj(this);
         }
     }
+    public void Wykonaj (Blok x, Zmienne z){
+        this.procedury.rzutuj(x.procedury());
+        this.zmienne.rzutuj(x.zmienne());
+        for(Zmienna i: z.zmienne()){
+            zmienne.dodaj(i.nazwa(), i.wartosc());
+        }
+        for (Instrukcja instrukcja : instrukcje) {
+            instrukcja.Wykonaj(this);
+        }
+    }
     public Blok Znajdz_pozycje(Blok x) {
         for (Instrukcja instrukcja : instrukcje) {
             if (instrukcja.getStanWykonania() == 1) {

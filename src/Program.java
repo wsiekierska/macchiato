@@ -16,7 +16,7 @@ public class Program extends Blok {
         this.Bloczki = Bloczki;
         Bloczki.add(0, new Blok(instrukcje, zmienne, procedury));
     }
-    public void Wykonaj() {
+    public void Uruchom() {
             for (Instrukcja instrukcja : instrukcje) {
                 instrukcja.Wykonaj(this);
             } zmienne.wypisz();

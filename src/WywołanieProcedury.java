@@ -17,10 +17,11 @@ public class WywołanieProcedury extends Instrukcja{
         try {
             DeklaracjaProcedury pom = x.procedury().znajdz(this.nazwa);
             ArrayList<Character> argumenty = pom.argumenty();
+            Zmienne z = new Zmienne();
             for (Wyrazenie i : parametry) {
-                x.zmienne().dodaj(argumenty.get(parametry.indexOf(i)), i.Wylicz(x));//e?
+                z.dodaj(argumenty.get(parametry.indexOf(i)), i.Wylicz(x));//e?
             }
-            pom.blok().Wykonaj(x);
+            pom.blok().Wykonaj(x, z);
         } catch(BrakProcedury e){
             System.out.println("Brak zadeklarowanej procedury");
             e.printStackTrace();
@@ -37,11 +38,4 @@ public class WywołanieProcedury extends Instrukcja{
         stanWykonania=1;
         return 1;
     }
-
-
-
-
-//    @TODO: dodać chary z kontruktora jako zmienne, wywołać Blok jakoś??, ale to w metodzie Wywołaj
-//    @TODO: probably wywalić builder bo się nie przyda
-
 }
