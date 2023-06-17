@@ -11,7 +11,7 @@ public class Odpluskiwacz {
         int ile = sc.nextInt();
         Blok teraz;
         if (p.getBloczki().get(0).getLicznik() >= p.getInstrukcje().size()) {
-            System.out.println("main.Program się wykonał.");
+            System.out.println("Program się wykonał.");
             p.zmienne.wypisz();
             return;
         }
@@ -24,7 +24,7 @@ public class Odpluskiwacz {
                 p.zmienne.wypisz();
             }
             if (p.getLicznik() >= p.getInstrukcje().size()) {
-                System.out.println("main.Program się wykonał.");
+                System.out.println("Program się wykonał.");
                 p.zmienne.wypisz();
                 return;
             } else {

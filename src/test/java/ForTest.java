@@ -9,14 +9,14 @@ public class ForTest {
                 .deklaracja('b', Literal.of(1))
                 .deklaracja('e', Literal.of(2))
                 .newFor(new ForBuilder('i', Literal.of(5))
-                        .przypisanieWartosci('b', Dodawanie.of(Zmienna.oNazwie('b'), Literal.of(1)))
+                        .przypisanieWartosci('b', Dodawanie.of(Zmienna.oNazwie('i'), Zmienna.oNazwie('b')))
                         .przypisanieWartosci('e', Dodawanie.of(Zmienna.oNazwie('e'), Literal.of(1)))
                         .build()
                 )
                 .build();
         program.Uruchom();
         try {
-            assertEquals(6, Zmienna.oNazwie('b').Wylicz(program));
+            assertEquals(11, Zmienna.oNazwie('b').Wylicz(program));
             assertEquals(7, Zmienna.oNazwie('e').Wylicz(program));
         }catch(BrakZmiennej e){e.printStackTrace();}
     }
