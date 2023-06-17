@@ -9,11 +9,11 @@ public class Dzielenie extends Wyrazenie {
     public static Dzielenie of(Wyrazenie a, Wyrazenie b){
         return new Dzielenie(a, b);
     }
-    public int Wylicz(Blok i) throws DzieleniePrzezZero, BrakZmiennej{
-        if(b.Wylicz(i)==0){
+    public int wylicz(Blok i) throws DzieleniePrzezZero, BrakZmiennej{
+        if(b.wylicz(i)==0){
             throw new DzieleniePrzezZero("Dzielenie przez zero");
         }else{
-            return a.Wylicz(i)/b.Wylicz(i);
+            return a.wylicz(i)/b.wylicz(i);
         }
     }
 }

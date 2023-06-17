@@ -13,9 +13,9 @@ public class IfTest {
                         .build()
                 )
                 .build();
-        program.Uruchom();
+        program.uruchom();
         try {
-            assertEquals(1, Zmienna.oNazwie('e').Wylicz(program));
+            assertEquals(1, Zmienna.oNazwie('e').wylicz(program));
         }catch(BrakZmiennej e){e.printStackTrace();}
     }
     @Test
@@ -28,9 +28,9 @@ public class IfTest {
                         .build()
                 )
                 .build();
-        program.Uruchom();
+        program.uruchom();
         try {
-            assertEquals(2, Zmienna.oNazwie('e').Wylicz(program));
+            assertEquals(2, Zmienna.oNazwie('e').wylicz(program));
         }catch(BrakZmiennej e){e.printStackTrace();}
     }
 }

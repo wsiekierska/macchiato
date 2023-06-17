@@ -9,10 +9,11 @@ public class Deklaracja extends Instrukcja {
         this.a = a;
         this.nazwa = nazwa;
         this.jestBlokiem = false;
+        this.jestProcedura=false;
     }
-    public void Wykonaj(Blok x) {
+    public void wykonaj(Blok x) {
         try {
-            int wartosc = a.Wylicz(x);
+            int wartosc = a.wylicz(x);
             x.zmienne().dodaj(nazwa, wartosc);
         }catch(DzieleniePrzezZero e){
             System.out.println("Dzielenie przez zero");
@@ -22,8 +23,8 @@ public class Deklaracja extends Instrukcja {
             e.printStackTrace();
         }
     }
-    public int WykonajJedno(Blok x) {
-        this.Wykonaj(x);
+    public int wykonajJedno(Blok x) {
+        this.wykonaj(x);
         stanWykonania = 1;
         return 1;
     }

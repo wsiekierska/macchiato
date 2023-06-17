@@ -21,7 +21,7 @@ public class PrintTest {
                 .deklaracja('c', Literal.of(10))
                 .newPrint(Zmienna.oNazwie('c'))
                 .build();
-        program.Uruchom();
+        program.uruchom();
         assertEquals("10\nc=10", outputStreamCaptor.toString().trim());
     }
 }

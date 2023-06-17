@@ -18,7 +18,7 @@ public class Zmienna extends Wyrazenie {
     public static Zmienna oNazwie(char nazwa){
         return new Zmienna(nazwa);
     }
-    public int Wylicz(Blok b) throws BrakZmiennej {
+    public int wylicz(Blok b) throws BrakZmiennej {
         return b.zmienne().zwrocWartosc(nazwa);
     }
 }

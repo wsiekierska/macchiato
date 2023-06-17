@@ -9,11 +9,11 @@ public class Modulo extends Wyrazenie {
         return new Modulo(a, b);
     }
 
-    public int Wylicz(Blok x)throws DzieleniePrzezZero, BrakZmiennej {
-        if(b.Wylicz(x)==0){
+    public int wylicz(Blok x)throws DzieleniePrzezZero, BrakZmiennej {
+        if(b.wylicz(x)==0){
             throw new DzieleniePrzezZero("main.Dzielenie przez zero");
         }else{
-            return a.Wylicz(x)%b.Wylicz(x);
+            return a.wylicz(x)%b.wylicz(x);
         }
     }
 }

@@ -9,7 +9,7 @@ public class Odejmowanie extends Wyrazenie {
         return new Odejmowanie(a, b);
     }
 
-    public int Wylicz(Blok x) throws DzieleniePrzezZero, BrakZmiennej{
-        return a.Wylicz(x) - b.Wylicz(x);
+    public int wylicz(Blok x) throws DzieleniePrzezZero, BrakZmiennej{
+        return a.wylicz(x) - b.wylicz(x);
     }
 }

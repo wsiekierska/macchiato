@@ -15,9 +15,9 @@ public class ElseIfTest {
                         .build()
                 )
                 .build();
-        program.Uruchom();
+        program.uruchom();
         try {
-            assertEquals(1, Zmienna.oNazwie('e').Wylicz(program));
+            assertEquals(1, Zmienna.oNazwie('e').wylicz(program));
         }catch(BrakZmiennej e){e.printStackTrace();}
     }
     @Test
@@ -31,9 +31,9 @@ public class ElseIfTest {
                     .build()
             )
             .build();
-        program.Uruchom();
+        program.uruchom();
         try {
-            assertEquals(100, Zmienna.oNazwie('e').Wylicz(program));
+            assertEquals(100, Zmienna.oNazwie('e').wylicz(program));
         }catch(BrakZmiennej e){e.printStackTrace();}
     }
 }

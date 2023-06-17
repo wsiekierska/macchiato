@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.Test;
-import java.util.*;
-import static java.util.List.*;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DeklaracjaTest {
@@ -9,9 +8,9 @@ public class DeklaracjaTest {
         Program program = new ProgramBuilder()
                 .deklaracja('c', Literal.of(10))
                 .build();
-        program.Uruchom();
+        program.uruchom();
         try {
-            assertEquals(10, Zmienna.oNazwie('c').Wylicz(program));
+            assertEquals(10, Zmienna.oNazwie('c').wylicz(program));
         }catch(BrakZmiennej e){e.printStackTrace();}
     }
 }

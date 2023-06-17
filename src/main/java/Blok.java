@@ -4,7 +4,6 @@ public class Blok extends Instrukcja {
     public void nazwa_instrukcji(){
         System.out.println("nowy Blok");
     }
-    //public ArrayList<Para<Character, Integer>> zmienne;
     protected Zmienne zmienne;
 
     public Zmienne zmienne() {
@@ -37,40 +36,51 @@ public class Blok extends Instrukcja {
         this.instrukcje = instrukcje;
         this.zmienne = zmienne;
         this.jestBlokiem = true;
+        this.jestProcedura=false;
     }
 
-    public void Wykonaj (Blok x){
+    public void wykonaj(Blok x){
         this.procedury.rzutuj(x.procedury());
         this.zmienne.rzutuj(x.zmienne());
         for (Instrukcja instrukcja : instrukcje) {
-            instrukcja.Wykonaj(this);
+            instrukcja.wykonaj(this);
         }
     }
-    public void Wykonaj (Blok x, Zmienne z){
+    public void wykonaj(Blok x, Zmienne z){
         this.procedury.rzutuj(x.procedury());
         this.zmienne.rzutuj(x.zmienne());
         for(Zmienna i: z.zmienne()){
             zmienne.dodaj(i.nazwa(), i.wartosc());
         }
         for (Instrukcja instrukcja : instrukcje) {
-            instrukcja.Wykonaj(this);
+            instrukcja.wykonaj(this);
         }
     }
-    public Blok Znajdz_pozycje(Blok x) {
-        for (Instrukcja instrukcja : instrukcje) {
+    public Blok znajdzPozycje(Blok x) {
+        ArrayList<Instrukcja> pomocnicze=x.getInstrukcje();
+        for (Instrukcja instrukcja : pomocnicze) {
             if (instrukcja.getStanWykonania() == 1) {
                 continue;
             }
             if (!instrukcja.getJestBlokiem()) {
+                if(instrukcja.getJestProcedura()){
+                    WywołanieProcedury p= (WywołanieProcedury) instrukcja;
+                    try {
+                        DeklaracjaProcedury pom = x.procedury().znajdz(p.nazwa());
+                        return x.znajdzPozycje(pom.blok());
+                    }catch(BrakProcedury e){
+                        e.printStackTrace();
+                    }
+                }
                 return this;
             } else {
-                return Znajdz_pozycje((Blok) instrukcja);
+                return znajdzPozycje((Blok) instrukcja);
             }
         }
         return x;
     }
 
-    public int WykonajJedno(Blok x){
+    public int wykonajJedno(Blok x){
         if(licznik==0){
             this.procedury.rzutuj(x.procedury());
             this.zmienne.rzutuj(x.zmienne());
@@ -82,10 +92,10 @@ public class Blok extends Instrukcja {
             stanWykonania = 1;
             return 1;
         }
-        instrukcje.get(licznik).WykonajJedno(this);
+        instrukcje.get(licznik).wykonajJedno(this);
         return 0;
     }
-    public int WykonajJedno(Blok x, Zmienne z){
+    public int wykonajJedno(Blok x, Zmienne z){
         if(licznik==0){
             this.procedury.rzutuj(x.procedury());
             this.zmienne.rzutuj(x.zmienne());
@@ -100,7 +110,7 @@ public class Blok extends Instrukcja {
             stanWykonania = 1;
             return 1;
         }
-        instrukcje.get(licznik).WykonajJedno(this);
+        instrukcje.get(licznik).wykonajJedno(this);
         return 0;
     }
 }

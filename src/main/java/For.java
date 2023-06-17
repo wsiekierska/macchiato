@@ -15,16 +15,16 @@ public class For extends Blok {
         this.wyrazenie = wyrazenie;
     }
 
-    public void Wykonaj(Blok x){
+    public void wykonaj(Blok x){
         try {
             zmienne.rzutuj(x.zmienne());
             procedury.rzutuj(x.procedury());
-            new Deklaracja(k, new Literal(0)).Wykonaj(this);
-            l = wyrazenie.Wylicz(x);
+            new Deklaracja(k, new Literal(0)).wykonaj(this);
+            l = wyrazenie.wylicz(x);
             for (int i = 0; i < l; i++) {
-                new PrzypisanieWartosci(k, new Literal(i)).Wykonaj(this);
+                new PrzypisanieWartosci(k, new Literal(i)).wykonaj(this);
                 for (Instrukcja instrukcja : instrukcje) {
-                    instrukcja.Wykonaj(this);
+                    instrukcja.wykonaj(this);
                 }
             }
         }catch(DzieleniePrzezZero e){
@@ -36,13 +36,13 @@ public class For extends Blok {
         }
     }
 
-    public int WykonajJedno(Blok x){
+    public int wykonajJedno(Blok x){
         try {
             if(licznik==0){
                 zmienne.rzutuj(x.zmienne());
                 procedury.rzutuj(x.procedury());
-                new Deklaracja(k, new Literal(0)).Wykonaj(this);
-                l = wyrazenie.Wylicz(x);
+                new Deklaracja(k, new Literal(0)).wykonaj(this);
+                l = wyrazenie.wylicz(x);
             }
             if (instrukcje.get(licznik).getStanWykonania() == 1) {
                 licznik++;
@@ -55,7 +55,7 @@ public class For extends Blok {
                     return 1;
                 }
             }
-            instrukcje.get(licznik).WykonajJedno(this);
+            instrukcje.get(licznik).wykonajJedno(this);
             return 0;
         }catch(DzieleniePrzezZero e){
             System.out.println("main.Dzielenie przez zero");

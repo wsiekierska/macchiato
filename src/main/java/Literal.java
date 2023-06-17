@@ -9,7 +9,7 @@ public class Literal extends Wyrazenie {
         return new Literal(x);
     }
 
-    public int Wylicz(Blok x)throws DzieleniePrzezZero, BrakZmiennej {
+    public int wylicz(Blok x)throws DzieleniePrzezZero, BrakZmiennej {
         return wartosc;
     }
 }

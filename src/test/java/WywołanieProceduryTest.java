@@ -15,9 +15,9 @@ public class WywołanieProceduryTest {
                                 .build())
                 .wywolanieProcedury("beer", new ArrayList<Wyrazenie>(List.of(Literal.of(1), Literal.of(5))))
                 .build();
-        program.Uruchom();
+        program.uruchom();
         try {
-            assertEquals(1, Zmienna.oNazwie('c').Wylicz(program.procedury().procedury().get(0).blok()));
-            assertEquals(6, Zmienna.oNazwie('r').Wylicz(program.procedury().procedury().get(0).blok()));
+            assertEquals(1, Zmienna.oNazwie('c').wylicz(program.procedury().procedury().get(0).blok()));
+            assertEquals(6, Zmienna.oNazwie('r').wylicz(program.procedury().procedury().get(0).blok()));
         }catch(BrakZmiennej e){e.printStackTrace();}    }
 }

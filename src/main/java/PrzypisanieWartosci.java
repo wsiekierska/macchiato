@@ -10,9 +10,9 @@ public class PrzypisanieWartosci extends Deklaracja {
     }
 
     @Override
-    public void Wykonaj(Blok x) {
+    public void wykonaj(Blok x) {
         try {
-            int wartosc = a.Wylicz(x);
+            int wartosc = a.wylicz(x);
             x.zmienne().zmienWartosc(nazwa, wartosc);
         } catch (DzieleniePrzezZero e) {
             e.printStackTrace();
@@ -20,8 +20,8 @@ public class PrzypisanieWartosci extends Deklaracja {
             e.printStackTrace();
         }
     }
-    public int WykonajJedno(Blok x) {
-        this.Wykonaj(x);
+    public int wykonajJedno(Blok x) {
+        this.wykonaj(x);
         stanWykonania = 1;
         return 1;
     }

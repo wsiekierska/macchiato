@@ -15,17 +15,17 @@ public class If extends Blok {
         this.operator = operator;
     }
 
-    public void Wykonaj(Blok x){
+    public void wykonaj(Blok x){
         try {
             zmienne.rzutuj(x.zmienne());
             procedury.rzutuj(x.procedury());
-            w1 = a.Wylicz(x);
-            w2 = b.Wylicz(x);
+            w1 = a.wylicz(x);
+            w2 = b.wylicz(x);
             switch (operator) {
                 case "=" -> {
                     if (w1 == w2) {
                         for (Instrukcja instrukcja : instrukcje) {
-                            instrukcja.Wykonaj(x);
+                            instrukcja.wykonaj(x);
                         }
                         stanWykonania = 1;
                     }
@@ -33,7 +33,7 @@ public class If extends Blok {
                 case "<>" -> {
                     if (w1 != w2) {
                         for (Instrukcja instrukcja : instrukcje) {
-                            instrukcja.Wykonaj(x);
+                            instrukcja.wykonaj(x);
                         }
                         stanWykonania = 1;
                     }
@@ -41,7 +41,7 @@ public class If extends Blok {
                 case ">" -> {
                     if (w1 > w2) {
                         for (Instrukcja instrukcja : instrukcje) {
-                            instrukcja.Wykonaj(x);
+                            instrukcja.wykonaj(x);
                         }
                         stanWykonania = 1;
                     }
@@ -49,7 +49,7 @@ public class If extends Blok {
                 case "<" -> {
                     if (w1 < w2) {
                         for (Instrukcja instrukcja : instrukcje) {
-                            instrukcja.Wykonaj(x);
+                            instrukcja.wykonaj(x);
                         }
                         stanWykonania = 1;
                     }
@@ -57,7 +57,7 @@ public class If extends Blok {
                 case ">=" -> {
                     if (w1 >= w2) {
                         for (Instrukcja instrukcja : instrukcje) {
-                            instrukcja.Wykonaj(x);
+                            instrukcja.wykonaj(x);
                         }
                         stanWykonania = 1;
                     }
@@ -65,7 +65,7 @@ public class If extends Blok {
                 case "<=" -> {
                     if (w1 <= w2) {
                         for (Instrukcja instrukcja : instrukcje) {
-                            instrukcja.Wykonaj(x);
+                            instrukcja.wykonaj(x);
                         }
                         stanWykonania = 1;
                     }

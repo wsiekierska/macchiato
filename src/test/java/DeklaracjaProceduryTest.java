@@ -10,7 +10,7 @@ public class DeklaracjaProceduryTest {
                 .deklaracjaProcedury("beer", new ArrayList<Character>(List.of('c','r','a','f','t')),
                         new BlokBuilder().build())
                 .build();
-        program.Uruchom();
+        program.uruchom();
         assertEquals("beer(c, r, a, f, t)\n", program.procedury().wyjscie(program.procedury().procedury().get(0)));
     }
 }

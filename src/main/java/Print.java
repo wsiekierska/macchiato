@@ -7,10 +7,11 @@ public class Print extends Instrukcja {
         this.stanWykonania=0;
         this.w = w;
         this.jestBlokiem = false;
+        this.jestProcedura=false;
     }
-    public void Wykonaj(Blok x) {
+    public void wykonaj(Blok x) {
         try{
-            int wartosc = w.Wylicz(x);
+            int wartosc = w.wylicz(x);
             System.out.println(wartosc);
         }catch(DzieleniePrzezZero e){
             System.out.println("Dzielenie przez zero");
@@ -20,8 +21,8 @@ public class Print extends Instrukcja {
             e.printStackTrace();
         }
     }
-    public int WykonajJedno(Blok x) {
-        this.Wykonaj(x);
+    public int wykonajJedno(Blok x) {
+        this.wykonaj(x);
         this.stanWykonania = 1;
         return 1;
     }

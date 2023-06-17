@@ -17,11 +17,11 @@ public class BlokTest {
                         .build()
                 )
                 .build();
-        program.Uruchom();
+        program.uruchom();
         try {
-            assertEquals(10, Zmienna.oNazwie('b').Wylicz(program));
-            assertEquals(3, Zmienna.oNazwie('e').Wylicz(program));
-            assertEquals(100, Zmienna.oNazwie('r').Wylicz(program));
+            assertEquals(10, Zmienna.oNazwie('b').wylicz(program));
+            assertEquals(3, Zmienna.oNazwie('e').wylicz(program));
+            assertEquals(100, Zmienna.oNazwie('r').wylicz(program));
         }catch(BrakZmiennej e){e.printStackTrace();}
     }
 }

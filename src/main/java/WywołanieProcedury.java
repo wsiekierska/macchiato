@@ -6,50 +6,42 @@ public class WywołanieProcedury extends Instrukcja{
     }
     private Zmienne zmienne;
     private String nazwa;
+    public String nazwa(){
+        return this.nazwa;
+    }
     private ArrayList<Wyrazenie> parametry;
     public WywołanieProcedury(String nazwa, ArrayList<Wyrazenie> parametry){
         this.nazwa=nazwa;
         this.parametry=parametry;
         this.stanWykonania = 0;
         this.jestBlokiem=false;
+        this.jestProcedura=true;
     }
-    public void Wykonaj(Blok x){
+    public void wykonaj(Blok x){
         try {
             DeklaracjaProcedury pom = x.procedury().znajdz(this.nazwa);
             ArrayList<Character> argumenty = pom.argumenty();
             Zmienne z = new Zmienne();
             pom.sprawdzParametry(parametry);
             for (Wyrazenie i : parametry) {
-                z.dodaj(argumenty.get(parametry.indexOf(i)), i.Wylicz(x));//e?
+                z.dodaj(argumenty.get(parametry.indexOf(i)), i.wylicz(x));//e?
             }
-            pom.blok().Wykonaj(x, z);
-        } catch(BrakProcedury e){
-            e.printStackTrace();
-        }catch(DzieleniePrzezZero e){
-            e.printStackTrace();
-        }catch(BrakZmiennej e){
-            e.printStackTrace();
-        }catch(ZlaLiczbaParametrow e){
+            pom.blok().wykonaj(x, z);
+        } catch(Exception e){
             e.printStackTrace();
         }
     }
-    public int WykonajJedno(Blok x){
+    public int wykonajJedno(Blok x){
         try {
             DeklaracjaProcedury pom = x.procedury().znajdz(this.nazwa);
             ArrayList<Character> argumenty = pom.argumenty();
             Zmienne z = new Zmienne();
             pom.sprawdzParametry(parametry);
             for (Wyrazenie i : parametry) {
-                z.dodaj(argumenty.get(parametry.indexOf(i)), i.Wylicz(x));//e?
+                z.dodaj(argumenty.get(parametry.indexOf(i)), i.wylicz(x));//e?
             }
-            pom.blok().WykonajJedno(x, z);
-        }catch(BrakProcedury e){
-            e.printStackTrace();
-        }catch(DzieleniePrzezZero e){
-            e.printStackTrace();
-        }catch(BrakZmiennej e){
-            e.printStackTrace();
-        }catch(ZlaLiczbaParametrow e){
+            pom.blok().wykonajJedno(x, z);
+        }catch(Exception e){
             e.printStackTrace();
         }
         stanWykonania=1;

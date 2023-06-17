@@ -22,14 +22,15 @@ public class DeklaracjaProcedury extends Instrukcja{
         this.b=b;
         this.zmienne=new Zmienne();
         this.jestBlokiem = false;
+        this.jestProcedura=false;
     }
-    public void Wykonaj(Blok x){
+    public void wykonaj(Blok x){
         try{
             x.procedury().dodaj(this);
         }catch(IstniejacaProcedura e){}
     }
-    public int WykonajJedno(Blok x){
-        Wykonaj(x);
+    public int wykonajJedno(Blok x){
+        wykonaj(x);
         stanWykonania=1;
         return 1;
     }

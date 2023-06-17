@@ -4,30 +4,29 @@ import java.util.Scanner;
 public class Program extends Blok {
     private ArrayList<Blok> Bloczki;
     public void nazwa_instrukcji(){
-        System.out.println("main.Blok glowny");
+        System.out.println("Blok glowny");
     }
     public ArrayList<Blok> getBloczki() {
         return Bloczki;
     }
-    private int ktoryBlok;
+    public void stanWykonania(int x){this.stanWykonania=x;}
 
     public Program(ArrayList<Instrukcja> instrukcje, ArrayList<Blok> Bloczki, Zmienne zmienne, Procedury procedury) {
         super(instrukcje, zmienne, procedury);
         this.Bloczki = Bloczki;
         Bloczki.add(0, new Blok(instrukcje, zmienne, procedury));
     }
-    public void Uruchom() {
+    public void uruchom() {
             for (Instrukcja instrukcja : instrukcje) {
-                instrukcja.Wykonaj(this);
+                instrukcja.wykonaj(this);
             } zmienne.wypisz();
     }
 
-    public void Debug() {
+    public void debug() {
         Odpluskiwacz debug=new Odpluskiwacz();
-        ktoryBlok = 0;
         Scanner sc = new Scanner(System.in);
         String c;
-        while (true) {
+        while (stanWykonania==0) {
             c = sc.next();
             switch (c) {
                 case "s" -> {
@@ -42,11 +41,25 @@ public class Program extends Blok {
                     debug.dump(this);
                 }
                 case "e" -> {
-                    System.out.println("main.Program został zakończony.");
+                    System.out.println("Program został zakończony.");
+                    zmienne.wypisz();
                     return;
                 }
             }
         }
+        System.out.println("Program został zakończony.");
+        return;
+    }
+    public int wykonajJedno(Blok x){
+        instrukcje.get(licznik).wykonajJedno(this);
+        if (instrukcje.get(licznik).getStanWykonania() == 1) {
+            licznik++;
+//            if (licznik == instrukcje.size()) {
+//                stanWykonania = 1;
+//            }
+            return 1;
+        }
+        return 0;
     }
 }
 

@@ -19,7 +19,18 @@ public class Main {
                         .build()
                 )
                 .build();
-//        program.Uruchom();
-        program.Debug();
+//        program.uruchom();
+        program.debug();
     }
 }
+
+//Krótka notatka na temat tego programu:
+//-debugger teoretyczne powinien działać, natomiast nie mogę też tego w 100% POtwierdzić,
+// bo mogą być tam błędy jeszcze z pierwszego zadania, gdzie on nie działał kompletnie.
+//
+//-zdecydowanie odradzałabym używanie polecenia continue, gdyż może stać się wówczas
+// coś bardzo, bardzo złego.
+//
+//-polecenie step POwinno być OK, należy w terminalu wpisać s -> enter(!) -> podać liczbę kroków.
+//
+//-dump działa.

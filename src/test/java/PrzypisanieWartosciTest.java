@@ -9,9 +9,9 @@ public class PrzypisanieWartosciTest {
                 .deklaracja('c', Literal.of(10))
                 .przypisanieWartosci('c', Literal.of(47))
                 .build();
-        program.Uruchom();
+        program.uruchom();
         try {
-            assertEquals(47, Zmienna.oNazwie('c').Wylicz(program));
+            assertEquals(47, Zmienna.oNazwie('c').wylicz(program));
         }catch(BrakZmiennej e){e.printStackTrace();}
     }
 }

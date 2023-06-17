@@ -14,10 +14,10 @@ public class ForTest {
                         .build()
                 )
                 .build();
-        program.Uruchom();
+        program.uruchom();
         try {
-            assertEquals(11, Zmienna.oNazwie('b').Wylicz(program));
-            assertEquals(7, Zmienna.oNazwie('e').Wylicz(program));
+            assertEquals(11, Zmienna.oNazwie('b').wylicz(program));
+            assertEquals(7, Zmienna.oNazwie('e').wylicz(program));
         }catch(BrakZmiennej e){e.printStackTrace();}
     }
 }
