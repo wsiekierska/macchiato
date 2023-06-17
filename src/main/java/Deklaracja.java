@@ -1,6 +1,6 @@
 public class Deklaracja extends Instrukcja {
     public void nazwa_instrukcji(){
-        System.out.println("main.Deklaracja zmiennej "+this.nazwa);
+        System.out.println("Deklaracja zmiennej "+this.nazwa);
     }
     protected char nazwa;
     protected Wyrazenie a;
@@ -15,7 +15,7 @@ public class Deklaracja extends Instrukcja {
             int wartosc = a.Wylicz(x);
             x.zmienne().dodaj(nazwa, wartosc);
         }catch(DzieleniePrzezZero e){
-            System.out.println("main.Dzielenie przez zero");
+            System.out.println("Dzielenie przez zero");
             e.printStackTrace();
         }catch(BrakZmiennej e){
             System.out.println("Brak zmiennej");

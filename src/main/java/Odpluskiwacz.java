@@ -9,32 +9,31 @@ public class Odpluskiwacz {
     public void Step(Program p) {
         Scanner sc = new Scanner(System.in);
         int ile = sc.nextInt();
-        Blok teraz;
         if (p.getBloczki().get(0).getLicznik() >= p.getInstrukcje().size()) {
             System.out.println("Program się wykonał.");
-            p.zmienne.wypisz();
             return;
         }
         while (ile != 0) {
-            teraz = p.Znajdz_pozycje(p);
-            System.out.print("Wejdz w instrukcje: ");
-            teraz.getInstrukcje().get(teraz.getLicznik()+1).nazwa_instrukcji();
-            int czyWykonano = p.WykonajJedno(p.getBloczki().get(0));
-            if (p.getLicznik() == p.getInstrukcje().size()) {
+            int czyWykonano = p.getBloczki().get(0).WykonajJedno(p.getBloczki().get(0));
+            if (p.getBloczki().get(0).getLicznik() == p.getInstrukcje().size()) {
                 p.zmienne.wypisz();
             }
-            if (p.getLicznik() >= p.getInstrukcje().size()) {
+            if (p.getBloczki().get(0).getLicznik() > p.getInstrukcje().size()) {
                 System.out.println("Program się wykonał.");
-                p.zmienne.wypisz();
                 return;
             } else {
                 ile--;
             }
         }
+        if (p.getBloczki().get(0).getLicznik() < p.getInstrukcje().size()) {
+            Blok teraz = p.getBloczki().get(0).Znajdz_pozycje(p.getBloczki().get(0));
+            System.out.print("Wejdz w instrukcje: ");
+            teraz.getInstrukcje().get(teraz.getLicznik()).nazwa_instrukcji();
+        }
     }
     public void Continue(Program p) {
         if (p.getBloczki().get(0).getLicznik() >= p.getInstrukcje().size()) {
-            System.out.println("main.Program się wykonał.");
+            System.out.println("Program się wykonał.");
             return;
         }
         int czyWykonano = 0;
@@ -42,7 +41,7 @@ public class Odpluskiwacz {
             czyWykonano = p.getBloczki().get(0).WykonajJedno(p.getBloczki().get(0));
         }
         if (p.getBloczki().get(0).getLicznik() >= p.getInstrukcje().size()) {
-            System.out.println("main.Program się wykonał.");
+            System.out.println("Program się wykonał.");
             return;
         } else {
             for (int i = p.getBloczki().get(0).getLicznik(); i < p.getInstrukcje().size(); i++) {

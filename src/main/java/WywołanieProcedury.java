@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class WywołanieProcedury extends Instrukcja{
     public void nazwa_instrukcji(){
-        System.out.println("new WykonanieProcedury");
+        System.out.println("Wywołanie Procedury: "+this.nazwa);
     }
     private Zmienne zmienne;
     private String nazwa;

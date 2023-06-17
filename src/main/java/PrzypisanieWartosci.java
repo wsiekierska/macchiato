@@ -1,6 +1,6 @@
 public class PrzypisanieWartosci extends Deklaracja {
     public void nazwa_instrukcji(){
-        System.out.println("new Przypisanie wartosci zmiennej: "+this.nazwa);
+        System.out.println("Przypisanie wartosci zmiennej: "+this.nazwa);
     }
 //    private char nazwa;
 //    private main.Wyrazenie a;

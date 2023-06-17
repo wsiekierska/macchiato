@@ -6,7 +6,7 @@ public class For extends Blok {
     private static int l;
     private static int iterator;
     public void nazwa_instrukcji(){
-        System.out.println("main.For, iterator: "+this.k);
+        System.out.println("For, iterator: "+this.k);
     }
     public For(char k, Wyrazenie wyrazenie, ArrayList<Instrukcja> instrukcje, Zmienne zmienne, Procedury procedury) {
         super(instrukcje, zmienne, procedury);

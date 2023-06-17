@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class If extends Blok {
     public void nazwa_instrukcji(){
-        System.out.println("new main.If, operator: "+this.operator);
+        System.out.println("If, operator: "+this.operator);
     }
     protected Wyrazenie a, b;
     protected String operator;
@@ -72,7 +72,7 @@ public class If extends Blok {
                 }
             }
         }catch(DzieleniePrzezZero e){
-            System.out.println("main.Dzielenie przez zero");
+            System.out.println("Dzielenie przez zero");
             e.printStackTrace();
         }catch(BrakZmiennej e){
             System.out.println("Brak zmiennej");

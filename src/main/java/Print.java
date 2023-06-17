@@ -1,6 +1,6 @@
 public class Print extends Instrukcja {
     public void nazwa_instrukcji(){
-        System.out.println("new main.Print");
+        System.out.println("Print");
     }
     private Wyrazenie w;
     public Print(Wyrazenie w) {

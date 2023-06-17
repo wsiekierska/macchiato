@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Blok extends Instrukcja {
     public void nazwa_instrukcji(){
-        System.out.println("new main.Blok");
+        System.out.println("nowy Blok");
     }
     //public ArrayList<Para<Character, Integer>> zmienne;
     protected Zmienne zmienne;

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class DeklaracjaProcedury extends Instrukcja{
     public void nazwa_instrukcji(){
-        System.out.println("new main.DeklaracjaProcedury");
+        System.out.println("Deklaracja Procedury: "+this.nazwa);
     }
     private String nazwa;
     public String nazwa(){return this.nazwa;}
