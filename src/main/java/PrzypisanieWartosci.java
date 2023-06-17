@@ -3,22 +3,26 @@ public class PrzypisanieWartosci extends Deklaracja {
         System.out.println("new Przypisanie wartosci zmiennej: "+this.nazwa);
     }
 //    private char nazwa;
-//    private Wyrazenie a;
+//    private main.Wyrazenie a;
 
     public PrzypisanieWartosci(char nazwa, Wyrazenie a) {
         super(nazwa, a);
     }
 
-    public void Wykonaj(Blok x){
+    @Override
+    public void Wykonaj(Blok x) {
         try {
             int wartosc = a.Wylicz(x);
             x.zmienne().zmienWartosc(nazwa, wartosc);
-        }catch(DzieleniePrzezZero e){
-            System.out.println("Dzielenie przez zero");
+        } catch (DzieleniePrzezZero e) {
             e.printStackTrace();
-        }catch(BrakZmiennej e){
-            System.out.println("Brak zmiennej");
+        } catch (BrakZmiennej e) {
             e.printStackTrace();
         }
+    }
+    public int WykonajJedno(Blok x) {
+        this.Wykonaj(x);
+        stanWykonania = 1;
+        return 1;
     }
 }

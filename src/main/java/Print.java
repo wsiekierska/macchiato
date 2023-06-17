@@ -1,21 +1,17 @@
-import java.util.ArrayList;
-
-public class Deklaracja extends Instrukcja {
+public class Print extends Instrukcja {
     public void nazwa_instrukcji(){
-        System.out.println("Deklaracja zmiennej "+this.nazwa);
+        System.out.println("new main.Print");
     }
-    protected char nazwa;
-    protected Wyrazenie a;
-    public Deklaracja(char nazwa, Wyrazenie a) {
-        this.stanWykonania = 0;
-        this.a = a;
-        this.nazwa = nazwa;
+    private Wyrazenie w;
+    public Print(Wyrazenie w) {
+        this.stanWykonania=0;
+        this.w = w;
         this.jestBlokiem = false;
     }
     public void Wykonaj(Blok x) {
-        try {
-            int wartosc = a.Wylicz(x);
-            x.zmienne().dodaj(nazwa, wartosc);
+        try{
+            int wartosc = w.Wylicz(x);
+            System.out.println(wartosc);
         }catch(DzieleniePrzezZero e){
             System.out.println("Dzielenie przez zero");
             e.printStackTrace();

@@ -6,6 +6,9 @@ public class Dzielenie extends Wyrazenie {
         this.b = b;
     }
 
+    public static Dzielenie of(Wyrazenie a, Wyrazenie b){
+        return new Dzielenie(a, b);
+    }
     public int Wylicz(Blok i) throws DzieleniePrzezZero, BrakZmiennej{
         if(b.Wylicz(i)==0){
             throw new DzieleniePrzezZero("Dzielenie przez zero");

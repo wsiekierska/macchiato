@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Program extends Blok {
     private ArrayList<Blok> Bloczki;
     public void nazwa_instrukcji(){
-        System.out.println("Blok glowny");
+        System.out.println("main.Blok glowny");
     }
     public ArrayList<Blok> getBloczki() {
         return Bloczki;
@@ -38,9 +38,11 @@ public class Program extends Blok {
                 }
                 case "d" -> {
                     debug.Display(this);
+                }case "m" -> {
+                    debug.dump(this);
                 }
                 case "e" -> {
-                    System.out.println("Program został zakończony.");
+                    System.out.println("main.Program został zakończony.");
                     return;
                 }
             }

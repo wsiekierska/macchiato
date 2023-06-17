@@ -18,23 +18,40 @@ public class WywołanieProcedury extends Instrukcja{
             DeklaracjaProcedury pom = x.procedury().znajdz(this.nazwa);
             ArrayList<Character> argumenty = pom.argumenty();
             Zmienne z = new Zmienne();
+            pom.sprawdzParametry(parametry);
             for (Wyrazenie i : parametry) {
                 z.dodaj(argumenty.get(parametry.indexOf(i)), i.Wylicz(x));//e?
             }
             pom.blok().Wykonaj(x, z);
         } catch(BrakProcedury e){
-            System.out.println("Brak zadeklarowanej procedury");
             e.printStackTrace();
         }catch(DzieleniePrzezZero e){
-            System.out.println("Dzielenie przez zero");
             e.printStackTrace();
         }catch(BrakZmiennej e){
-            System.out.println("Brak zmiennej");
+            e.printStackTrace();
+        }catch(ZlaLiczbaParametrow e){
             e.printStackTrace();
         }
     }
     public int WykonajJedno(Blok x){
-        Wykonaj(x);
+        try {
+            DeklaracjaProcedury pom = x.procedury().znajdz(this.nazwa);
+            ArrayList<Character> argumenty = pom.argumenty();
+            Zmienne z = new Zmienne();
+            pom.sprawdzParametry(parametry);
+            for (Wyrazenie i : parametry) {
+                z.dodaj(argumenty.get(parametry.indexOf(i)), i.Wylicz(x));//e?
+            }
+            pom.blok().WykonajJedno(x, z);
+        }catch(BrakProcedury e){
+            e.printStackTrace();
+        }catch(DzieleniePrzezZero e){
+            e.printStackTrace();
+        }catch(BrakZmiennej e){
+            e.printStackTrace();
+        }catch(ZlaLiczbaParametrow e){
+            e.printStackTrace();
+        }
         stanWykonania=1;
         return 1;
     }

@@ -6,7 +6,7 @@ public class For extends Blok {
     private static int l;
     private static int iterator;
     public void nazwa_instrukcji(){
-        System.out.println("For, iterator: "+this.k);
+        System.out.println("main.For, iterator: "+this.k);
     }
     public For(char k, Wyrazenie wyrazenie, ArrayList<Instrukcja> instrukcje, Zmienne zmienne, Procedury procedury) {
         super(instrukcje, zmienne, procedury);
@@ -19,7 +19,7 @@ public class For extends Blok {
         try {
             zmienne.rzutuj(x.zmienne());
             procedury.rzutuj(x.procedury());
-            new Deklaracja(k, new Literal(0));
+            new Deklaracja(k, new Literal(0)).Wykonaj(this);
             l = wyrazenie.Wylicz(x);
             for (int i = 0; i < l; i++) {
                 new PrzypisanieWartosci(k, new Literal(i)).Wykonaj(this);
@@ -28,7 +28,7 @@ public class For extends Blok {
                 }
             }
         }catch(DzieleniePrzezZero e){
-            System.out.println("Dzielenie przez zero");
+            System.out.println("main.Dzielenie przez zero");
             e.printStackTrace();
         }catch(BrakZmiennej e){
             System.out.println("Brak zmiennej");
@@ -41,7 +41,7 @@ public class For extends Blok {
             if(licznik==0){
                 zmienne.rzutuj(x.zmienne());
                 procedury.rzutuj(x.procedury());
-                new Deklaracja(k, new Literal(0));
+                new Deklaracja(k, new Literal(0)).Wykonaj(this);
                 l = wyrazenie.Wylicz(x);
             }
             if (instrukcje.get(licznik).getStanWykonania() == 1) {
@@ -58,7 +58,7 @@ public class For extends Blok {
             instrukcje.get(licznik).WykonajJedno(this);
             return 0;
         }catch(DzieleniePrzezZero e){
-            System.out.println("Dzielenie przez zero");
+            System.out.println("main.Dzielenie przez zero");
             e.printStackTrace();
         }catch(BrakZmiennej e){
             System.out.println("Brak zmiennej");

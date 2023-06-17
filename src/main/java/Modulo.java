@@ -5,11 +5,13 @@ public class Modulo extends Wyrazenie {
         this.a = a;
         this.b = b;
     }
-
+    public static Modulo of(Wyrazenie a, Wyrazenie b){
+        return new Modulo(a, b);
+    }
 
     public int Wylicz(Blok x)throws DzieleniePrzezZero, BrakZmiennej {
         if(b.Wylicz(x)==0){
-            throw new DzieleniePrzezZero("Dzielenie przez zero");
+            throw new DzieleniePrzezZero("main.Dzielenie przez zero");
         }else{
             return a.Wylicz(x)%b.Wylicz(x);
         }

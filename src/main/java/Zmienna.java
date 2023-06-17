@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Zmienna extends Wyrazenie {
     private char nazwa;
     private int wartosc;

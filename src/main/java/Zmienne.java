@@ -1,3 +1,8 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 public class Zmienne {
@@ -48,6 +53,18 @@ public class Zmienne {
             System.out.print(zmienna.nazwa());
             System.out.print("=");
             System.out.println(zmienna.wartosc());
+        }
+    }
+
+    public void zapisz(FileWriter sciezka){
+        String zapis;
+        try {
+            for (Zmienna zmienna : zmienne) {
+                zapis = zmienna.nazwa() + " = " + zmienna.wartosc()+"\n";
+                sciezka.write(zapis);
+            }
+        }catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

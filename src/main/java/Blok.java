@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Blok extends Instrukcja {
     public void nazwa_instrukcji(){
-        System.out.println("new Blok");
+        System.out.println("new main.Blok");
     }
     //public ArrayList<Para<Character, Integer>> zmienne;
     protected Zmienne zmienne;
@@ -75,6 +74,24 @@ public class Blok extends Instrukcja {
         if(licznik==0){
             this.procedury.rzutuj(x.procedury());
             this.zmienne.rzutuj(x.zmienne());
+        }
+        if (instrukcje.get(licznik).getStanWykonania() == 1) {
+            licznik++;
+        }
+        if (licznik == instrukcje.size()) {
+            stanWykonania = 1;
+            return 1;
+        }
+        instrukcje.get(licznik).WykonajJedno(this);
+        return 0;
+    }
+    public int WykonajJedno(Blok x, Zmienne z){
+        if(licznik==0){
+            this.procedury.rzutuj(x.procedury());
+            this.zmienne.rzutuj(x.zmienne());
+            for(Zmienna i: z.zmienne()){
+                zmienne.dodaj(i.nazwa(), i.wartosc());
+            }
         }
         if (instrukcje.get(licznik).getStanWykonania() == 1) {
             licznik++;

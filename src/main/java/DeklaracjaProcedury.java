@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class DeklaracjaProcedury extends Instrukcja{
     public void nazwa_instrukcji(){
-        System.out.println("new DeklaracjaProcedury");
+        System.out.println("new main.DeklaracjaProcedury");
     }
     private String nazwa;
     public String nazwa(){return this.nazwa;}
@@ -24,12 +24,19 @@ public class DeklaracjaProcedury extends Instrukcja{
         this.jestBlokiem = false;
     }
     public void Wykonaj(Blok x){
-        x.procedury().dodaj(this);
+        try{
+            x.procedury().dodaj(this);
+        }catch(IstniejacaProcedura e){}
     }
     public int WykonajJedno(Blok x){
-        x.procedury().dodaj(this);
+        Wykonaj(x);
         stanWykonania=1;
         return 1;
+    }
+    public void sprawdzParametry(ArrayList<Wyrazenie> parametry)throws ZlaLiczbaParametrow{
+        if(parametry.size()!= argumenty().size()){
+            throw new ZlaLiczbaParametrow("Podano złą liczbę parametrów.");
+        }
     }
 
 }
